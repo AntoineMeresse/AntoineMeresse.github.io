@@ -1,0 +1,52 @@
+table {
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+}
+
+button {
+  color: red;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border : 1px solid black;
+}
+
+.bottom {
+  border-bottom: 3px solid black;
+}
+
+.right {
+  border-right: 3px solid black;
+}
+
+.userselect {
+  background-color: gray;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+input {
+  display: inline-block;
+  width: 40%;
+  margin-top: 3%;
+}
+
+h1, input{
+  margin-left: 20%;
+}
+
+p {
+  margin-left: 33%;
+}
+
+html {
+  background-color: lightgrey;
+}
