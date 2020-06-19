@@ -5,8 +5,10 @@ var grid = [];
 
 function reset(){
   var g = document.getElementsByClassName('sudoku')[0];
-  g.innerHTML = ""
-  grid = []
+  var res = document.getElementsByClassName("res")[0];
+  g.innerHTML = "";
+  grid = [];
+  res.innerHTML = "";
   generateSudokuGrid();
   cellClick();
 }
@@ -165,12 +167,13 @@ function checkGridBeforeResolve(){
 }
 
 function main(){
+  let res = document.getElementsByClassName("res")[0];
   if(checkGridBeforeResolve()){ 
     start = new Date();
     solve();
     end = new Date();
-    let time = (end-start)+" ms.";
-    console.log(time);
+    let time = "The grid was solved in : "+(end-start)+" ms.";
+    res.innerHTML = "<p>"+time+"</p>";
   }
   else {
     alert("This grid is not possible !")
