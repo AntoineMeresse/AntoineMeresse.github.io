@@ -172,7 +172,7 @@ function main(){
     start = new Date();
     solve();
     end = new Date();
-    let time = "The grid was solved in : "+(end-start)+" ms.";
+    let time = "The grid was solved in : <span id='time'>"+(end-start)+"</span> ms.";
     res.innerHTML = "<p>"+time+"</p>";
   }
   else {

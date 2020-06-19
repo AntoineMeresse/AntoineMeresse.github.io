@@ -66,3 +66,18 @@ p {
   text-align: center;
 }
 
+a {
+  color : blue;
+}
+
+a:hover {
+  color : green;
+}
+
+span {
+  color : red;
+}
+
+td:hover {
+  background-color: greenyellow;
+}
