@@ -71,6 +71,7 @@ function changeValue(value, elem){
     grid[x][y] = nextValue;
     if(nextValue == 0) elem.classList.remove("userselect");
     else elem.classList.add("userselect");
+    console.log(grid);
     return nextValue;
   }
   else return changeValue(nextValue, elem);
@@ -152,12 +153,28 @@ function solve(){
   }
 }
 
+function checkGridBeforeResolve(){
+  for(var i = 0; i < 9; i++){
+    for (var j = 0; j < 9; j++){
+      if(grid[i][j] == 0){
+        if(findPossibilities(i,j).length == 0) return false;
+      }
+    }
+  }
+  return true;
+}
+
 function main(){
-  start = new Date();
-  solve();
-  end = new Date();
-  let time = (end-start)+" ms.";
-  console.log(time);
+  if(checkGridBeforeResolve()){ 
+    start = new Date();
+    solve();
+    end = new Date();
+    let time = (end-start)+" ms.";
+    console.log(time);
+  }
+  else {
+    alert("This grid is not possible !")
+  }
 }
 
 //////////////// Setup ///////////////
@@ -166,6 +183,5 @@ function setupListeners(){
   generateSudokuGrid();
   cellClick();
 }
-
 
 window.addEventListener('load', setupListeners);
