@@ -60,21 +60,20 @@ function generateSudokuGrid(){
 
 // Change the value of a cell by clicking on it.
 
+
 function changeValue(value, elem){
   let x = Math.floor(elem.id / 9);
   let y = elem.id % 9;
-  if (value == emptyCell) {
-    grid[x][y] = 1;
-    elem.classList.add("userselect");
-    return 1;
+  var poss = findPossibilities(x,y);
+  if (value == emptyCell) value = 0; // Transform an empty cell as 0.
+  let nextValue = (parseInt(value)+1)%10;
+  if(poss.includes(nextValue) || nextValue == 0) {
+    grid[x][y] = nextValue;
+    if(nextValue == 0) elem.classList.remove("userselect");
+    else elem.classList.add("userselect");
+    return nextValue;
   }
-  else {
-    let next = (parseInt(value)+1)%10;
-    if(next != 0) elem.classList.add("userselect");
-    else elem.classList.remove("userselect");
-    grid[x][y] = next;
-    return next;
-  }
+  else return changeValue(nextValue, elem);
 }
 
 function cellClick(){
