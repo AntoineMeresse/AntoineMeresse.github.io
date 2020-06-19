@@ -58,6 +58,9 @@ function generateSudokuGrid(){
 
   table.appendChild(tbody);
   g.appendChild(table);
+
+  var w = $('td').width();
+  $('td').css({'height' : w+'px'});
 }
 
 // Change the value of a cell by clicking on it.
